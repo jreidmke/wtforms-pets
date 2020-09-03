@@ -1,0 +1,58 @@
+OK, we're making an adoption app.
+
+First make a database of pets
+
+AND
+
+a Pet Model
+
+class Pet(db.Model):
+
+	__tablename__='pets'
+
+	id autoincrement int
+
+	name required string
+	species requred string
+	photo_url optional string
+	age optional integer
+	notes optional string
+	available required bool, default to available 
+
+
+Easy enough! Let's look at that routing.
+
+Route: GET / 
+	
+	should show a name, image and abailable if pup 	abailable
+
+
+Next, create an Add Pet Form!
+
+Route: GET /add
+
+	It should feed into the Pet Model declared above, so 		don't overthink it.
+
+Route: POST /add
+
+	Should use above form to create new pet and add pet 
+	to database. Redirect to '/'
+
+Check validation... if form.validate_on_submit():
+
+Then add other validations to form:
+(the species should be either “cat”, “dog”, or “porcupine”
+
+the age should be between 0 and 30, if provided)
+
+
+
+Ugh, then we have to do some edit stuff...
+
+Rotue: GET /{pet_id}
+
+	Should take you to pet form with curr pet info in 	inputs
+
+Route: POST /{pet_id}
+
+	Update pet and redirect to '/'
